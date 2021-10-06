@@ -1,0 +1,433 @@
+Analysis & Synthesis report for BRGCKT
+Sat Apr 10 15:32:27 2021
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |BRGCKT|ABRCKT:inst|ABRCKT_CT:dt|ps
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Parameter Settings for User Entity Instance: ABRCKT:inst|ABRCKT_CT:dt
+ 13. Port Connectivity Checks: "ABRCKT:inst|ABRCKT_CT:dt"
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Apr 10 15:32:27 2021           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; BRGCKT                                          ;
+; Top-level Entity Name              ; BRGCKT                                          ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 129                                             ;
+;     Total combinational functions  ; 121                                             ;
+;     Dedicated logic registers      ; 30                                              ;
+; Total registers                    ; 30                                              ;
+; Total pins                         ; 6                                               ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE6E22A7        ;                    ;
+; Top-level entity name                                                      ; BRGCKT             ; BRGCKT             ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------+---------+
+; ABRCKT.v                         ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab1_Q/BRGCKT/ABRCKT.v              ;         ;
+; BRGCKT.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/SM2A/Documents/ModelSim Projects/lab1_Q/BRGCKT/BRGCKT.bdf            ;         ;
+; frequency_divider.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/SM2A/Documents/ModelSim Projects/lab1_Q/BRGCKT/frequency_divider.bdf ;         ;
+; 74193.bdf                        ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/others/maxplus2/74193.bdf                 ;         ;
+; 7476.bdf                         ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/others/maxplus2/7476.bdf                  ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                     ;
++---------------------------------------------+-----------------------------------+
+; Resource                                    ; Usage                             ;
++---------------------------------------------+-----------------------------------+
+; Estimated Total logic elements              ; 129                               ;
+;                                             ;                                   ;
+; Total combinational functions               ; 121                               ;
+; Logic element usage by number of LUT inputs ;                                   ;
+;     -- 4 input functions                    ; 22                                ;
+;     -- 3 input functions                    ; 46                                ;
+;     -- <=2 input functions                  ; 53                                ;
+;                                             ;                                   ;
+; Logic elements by mode                      ;                                   ;
+;     -- normal mode                          ; 85                                ;
+;     -- arithmetic mode                      ; 36                                ;
+;                                             ;                                   ;
+; Total registers                             ; 30                                ;
+;     -- Dedicated logic registers            ; 30                                ;
+;     -- I/O registers                        ; 0                                 ;
+;                                             ;                                   ;
+; I/O pins                                    ; 6                                 ;
+; Embedded Multiplier 9-bit elements          ; 0                                 ;
+; Maximum fan-out node                        ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ;
+; Maximum fan-out                             ; 42                                ;
+; Total fan-out                               ; 428                               ;
+; Average fan-out                             ; 2.63                              ;
++---------------------------------------------+-----------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; Compilation Hierarchy Node   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                             ; Library Name ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+; |BRGCKT                      ; 121 (0)           ; 30 (0)       ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |BRGCKT                                         ; work         ;
+;    |ABRCKT:inst|             ; 87 (0)            ; 21 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|ABRCKT:inst                             ; work         ;
+;       |ABRCKT_CT:dt|         ; 79 (79)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|ABRCKT:inst|ABRCKT_CT:dt                ; work         ;
+;       |ABRCKT_DP:dp|         ; 8 (0)             ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|ABRCKT:inst|ABRCKT_DP:dp                ; work         ;
+;          |cnt_8:cnt|         ; 8 (8)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|ABRCKT:inst|ABRCKT_DP:dp|cnt_8:cnt      ; work         ;
+;          |reg_8:register|    ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|ABRCKT:inst|ABRCKT_DP:dp|reg_8:register ; work         ;
+;    |frequency_divider:inst1| ; 34 (1)            ; 9 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|frequency_divider:inst1                 ; work         ;
+;       |74193:inst1|          ; 16 (16)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|frequency_divider:inst1|74193:inst1     ; work         ;
+;       |74193:inst|           ; 16 (16)           ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|frequency_divider:inst1|74193:inst      ; work         ;
+;       |7476:inst3|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BRGCKT|frequency_divider:inst1|7476:inst3      ; work         ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------+
+; State Machine - |BRGCKT|ABRCKT:inst|ABRCKT_CT:dt|ps          ;
++----------+----------+---------+----------+---------+---------+
+; Name     ; ps.count ; ps.init ; ps.ready ; ps.idle ; ps.stop ;
++----------+----------+---------+----------+---------+---------+
+; ps.idle  ; 0        ; 0       ; 0        ; 0       ; 0       ;
+; ps.ready ; 0        ; 0       ; 1        ; 1       ; 0       ;
+; ps.init  ; 0        ; 1       ; 0        ; 1       ; 0       ;
+; ps.count ; 1        ; 0       ; 0        ; 1       ; 0       ;
+; ps.stop  ; 0        ; 0       ; 0        ; 1       ; 1       ;
++----------+----------+---------+----------+---------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                              ;
++-----------------------------------------------------+-----------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal               ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------------------+------------------------+
+; ABRCKT:inst|ABRCKT_CT:dt|i[10]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[9]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[8]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[7]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[6]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[5]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[4]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[3]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[2]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[1]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[0]                       ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[12]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[13]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[14]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[15]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[16]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[17]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[18]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[19]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[20]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[21]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[22]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[23]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[24]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[25]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[26]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[27]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[28]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[29]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[30]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[31]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; ABRCKT:inst|ABRCKT_CT:dt|i[11]                      ; ABRCKT:inst|ABRCKT_CT:dt|ps.count ; yes                    ;
+; Number of user-specified and inferred latches = 32  ;                                   ;                        ;
++-----------------------------------------------------+-----------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; ABRCKT:inst|ABRCKT_CT:dt|ps~2         ; Lost fanout        ;
+; ABRCKT:inst|ABRCKT_CT:dt|ps~3         ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 30    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 17    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 15    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ABRCKT:inst|ABRCKT_CT:dt ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; idle           ; 000   ; Unsigned Binary                              ;
+; ready          ; 001   ; Unsigned Binary                              ;
+; init           ; 010   ; Unsigned Binary                              ;
+; count          ; 011   ; Unsigned Binary                              ;
+; stop           ; 100   ; Unsigned Binary                              ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ABRCKT:inst|ABRCKT_CT:dt"                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; UxRXIF ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Apr 10 15:32:22 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BRGCKT -c BRGCKT
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 5 design units, including 5 entities, in source file abrckt.v
+    Info (12023): Found entity 1: ABRCKT
+    Info (12023): Found entity 2: ABRCKT_DP
+    Info (12023): Found entity 3: ABRCKT_CT
+    Info (12023): Found entity 4: reg_8
+    Info (12023): Found entity 5: cnt_8
+Info (12021): Found 1 design units, including 1 entities, in source file brgckt.bdf
+    Info (12023): Found entity 1: BRGCKT
+Info (12021): Found 1 design units, including 1 entities, in source file frequency_divider.bdf
+    Info (12023): Found entity 1: frequency_divider
+Warning (10236): Verilog HDL Implicit Net warning at ABRCKT.v(5): created implicit net for "UxRX_"
+Info (12127): Elaborating entity "BRGCKT" for the top level hierarchy
+Info (12128): Elaborating entity "frequency_divider" for hierarchy "frequency_divider:inst1"
+Info (12128): Elaborating entity "74193" for hierarchy "frequency_divider:inst1|74193:inst"
+Info (12130): Elaborated megafunction instantiation "frequency_divider:inst1|74193:inst"
+Info (12128): Elaborating entity "7476" for hierarchy "frequency_divider:inst1|7476:inst3"
+Info (12130): Elaborated megafunction instantiation "frequency_divider:inst1|7476:inst3"
+Info (12128): Elaborating entity "ABRCKT" for hierarchy "ABRCKT:inst"
+Warning (10034): Output port "UxRXIF" at ABRCKT.v(1) has no driver
+Info (12128): Elaborating entity "ABRCKT_DP" for hierarchy "ABRCKT:inst|ABRCKT_DP:dp"
+Info (12128): Elaborating entity "cnt_8" for hierarchy "ABRCKT:inst|ABRCKT_DP:dp|cnt_8:cnt"
+Warning (10230): Verilog HDL assignment warning at ABRCKT.v(68): truncated value with size 32 to match size of target (8)
+Info (12128): Elaborating entity "reg_8" for hierarchy "ABRCKT:inst|ABRCKT_DP:dp|reg_8:register"
+Info (12128): Elaborating entity "ABRCKT_CT" for hierarchy "ABRCKT:inst|ABRCKT_CT:dt"
+Warning (10235): Verilog HDL Always Construct warning at ABRCKT.v(28): variable "i" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at ABRCKT.v(40): variable "i" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at ABRCKT.v(34): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "i[0]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[1]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[2]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[3]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[4]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[5]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[6]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[7]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[8]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[9]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[10]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[11]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[12]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[13]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[14]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[15]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[16]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[17]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[18]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[19]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[20]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[21]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[22]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[23]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[24]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[25]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[26]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[27]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[28]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[29]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[30]" at ABRCKT.v(34)
+Info (10041): Inferred latch for "i[31]" at ABRCKT.v(34)
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "frequency_divider:inst1|74193:inst1|25" is converted into an equivalent circuit using register "frequency_divider:inst1|74193:inst1|25~_emulated" and latch "frequency_divider:inst1|74193:inst1|25~1"
+    Warning (13310): Register "frequency_divider:inst1|74193:inst1|26" is converted into an equivalent circuit using register "frequency_divider:inst1|74193:inst1|26~_emulated" and latch "frequency_divider:inst1|74193:inst1|26~1"
+    Warning (13310): Register "frequency_divider:inst1|74193:inst1|24" is converted into an equivalent circuit using register "frequency_divider:inst1|74193:inst1|24~_emulated" and latch "frequency_divider:inst1|74193:inst1|24~1"
+    Warning (13310): Register "frequency_divider:inst1|74193:inst1|23" is converted into an equivalent circuit using register "frequency_divider:inst1|74193:inst1|23~_emulated" and latch "frequency_divider:inst1|74193:inst1|23~1"
+    Warning (13310): Register "frequency_divider:inst1|74193:inst|25" is converted into an equivalent circuit using register "frequency_divider:inst1|74193:inst|25~_emulated" and latch "frequency_divider:inst1|74193:inst|25~1"
+    Warning (13310): Register "frequency_divider:inst1|74193:inst|26" is converted into an equivalent circuit using register "frequency_divider:inst1|74193:inst|26~_emulated" and latch "frequency_divider:inst1|74193:inst|26~1"
+    Warning (13310): Register "frequency_divider:inst1|74193:inst|24" is converted into an equivalent circuit using register "frequency_divider:inst1|74193:inst|24~_emulated" and latch "frequency_divider:inst1|74193:inst|24~1"
+    Warning (13310): Register "frequency_divider:inst1|74193:inst|23" is converted into an equivalent circuit using register "frequency_divider:inst1|74193:inst|23~_emulated" and latch "frequency_divider:inst1|74193:inst|23~1"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "UxRXIF" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 135 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 2 output pins
+    Info (21061): Implemented 129 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4589 megabytes
+    Info: Processing ended: Sat Apr 10 15:32:27 2021
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
+
+

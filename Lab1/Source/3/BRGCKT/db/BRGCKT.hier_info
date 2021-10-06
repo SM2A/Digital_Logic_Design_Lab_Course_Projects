@@ -1,0 +1,199 @@
+|BRGCKT
+BRGOUT <= frequency_divider:inst1.co
+BRGCLK => frequency_divider:inst1.clk
+BRGCLK => ABRCKT:inst.BRGCLK
+ABUD => ABRCKT:inst.ABUD
+UxRX => ABRCKT:inst.UxRX
+preset => frequency_divider:inst1.preset
+UxRXIF <= ABRCKT:inst.UxRXIF
+
+
+|BRGCKT|frequency_divider:inst1
+o3 <= 74193:inst.QD
+i3 => 74193:inst.D
+i2 => 74193:inst.C
+i1 => 74193:inst.B
+i0 => 74193:inst.A
+clk => 74193:inst.UP
+i7 => 74193:inst1.D
+i6 => 74193:inst1.C
+i5 => 74193:inst1.B
+i4 => 74193:inst1.A
+preset => inst5.IN1
+preset => 7476:inst3.1PRN
+preset => 7476:inst3.1CLRN
+o2 <= 74193:inst.QC
+o1 <= 74193:inst.QB
+o0 <= 74193:inst.QA
+o7 <= 74193:inst1.QD
+o6 <= 74193:inst1.QC
+o5 <= 74193:inst1.QB
+o4 <= 74193:inst1.QA
+co <= 7476:inst3.1Q
+
+
+|BRGCKT|frequency_divider:inst1|74193:inst
+BON <= 28.DB_MAX_OUTPUT_PORT_TYPE
+CLR => 44.IN0
+LDN => 43.IN0
+B => 53.IN2
+A => 52.IN2
+DN => 90.IN0
+UP => 89.IN0
+C => 54.IN2
+D => 55.IN2
+CON <= 27.DB_MAX_OUTPUT_PORT_TYPE
+QD <= 23.DB_MAX_OUTPUT_PORT_TYPE
+QC <= 24.DB_MAX_OUTPUT_PORT_TYPE
+QB <= 25.DB_MAX_OUTPUT_PORT_TYPE
+QA <= 26.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BRGCKT|frequency_divider:inst1|74193:inst1
+BON <= 28.DB_MAX_OUTPUT_PORT_TYPE
+CLR => 44.IN0
+LDN => 43.IN0
+B => 53.IN2
+A => 52.IN2
+DN => 90.IN0
+UP => 89.IN0
+C => 54.IN2
+D => 55.IN2
+CON <= 27.DB_MAX_OUTPUT_PORT_TYPE
+QD <= 23.DB_MAX_OUTPUT_PORT_TYPE
+QC <= 24.DB_MAX_OUTPUT_PORT_TYPE
+QB <= 25.DB_MAX_OUTPUT_PORT_TYPE
+QA <= 26.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BRGCKT|frequency_divider:inst1|7476:inst3
+2QN <= 5.DB_MAX_OUTPUT_PORT_TYPE
+2PRN => 7.PRESET
+2CLRN => 7.ACLR
+2K => 7.IN0
+2J => 7.IN1
+2CLK => 7.CLK
+2Q <= 7.DB_MAX_OUTPUT_PORT_TYPE
+1QN <= 6.DB_MAX_OUTPUT_PORT_TYPE
+1PRN => 8.PRESET
+1CLRN => 8.ACLR
+1K => 8.IN0
+1J => 8.IN1
+1CLK => 8.CLK
+1Q <= 8.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BRGCKT|ABRCKT:inst
+ABUD => ABUD.IN1
+UxRX => UxRX.IN1
+BRGCLK => BRGCLK.IN2
+N[0] <= ABRCKT_DP:dp.port4
+N[1] <= ABRCKT_DP:dp.port4
+N[2] <= ABRCKT_DP:dp.port4
+N[3] <= ABRCKT_DP:dp.port4
+N[4] <= ABRCKT_DP:dp.port4
+N[5] <= ABRCKT_DP:dp.port4
+N[6] <= ABRCKT_DP:dp.port4
+N[7] <= ABRCKT_DP:dp.port4
+UxRXIF <= <GND>
+
+
+|BRGCKT|ABRCKT:inst|ABRCKT_DP:dp
+clk => clk.IN2
+cnt_en => cnt_en.IN1
+cnt_rst => cnt_rst.IN1
+reg_ld => reg_ld.IN1
+N[0] <= reg_8:register.port3
+N[1] <= reg_8:register.port3
+N[2] <= reg_8:register.port3
+N[3] <= reg_8:register.port3
+N[4] <= reg_8:register.port3
+N[5] <= reg_8:register.port3
+N[6] <= reg_8:register.port3
+N[7] <= reg_8:register.port3
+
+
+|BRGCKT|ABRCKT:inst|ABRCKT_DP:dp|cnt_8:cnt
+clk => out[0]~reg0.CLK
+clk => out[1]~reg0.CLK
+clk => out[2]~reg0.CLK
+clk => out[3]~reg0.CLK
+clk => out[4]~reg0.CLK
+clk => out[5]~reg0.CLK
+clk => out[6]~reg0.CLK
+clk => out[7]~reg0.CLK
+rst => out[0]~reg0.ACLR
+rst => out[1]~reg0.ACLR
+rst => out[2]~reg0.ACLR
+rst => out[3]~reg0.ACLR
+rst => out[4]~reg0.ACLR
+rst => out[5]~reg0.ACLR
+rst => out[6]~reg0.ACLR
+rst => out[7]~reg0.ACLR
+en => out[7]~reg0.ENA
+en => out[6]~reg0.ENA
+en => out[5]~reg0.ENA
+en => out[4]~reg0.ENA
+en => out[3]~reg0.ENA
+en => out[2]~reg0.ENA
+en => out[1]~reg0.ENA
+en => out[0]~reg0.ENA
+out[0] <= out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+out[7] <= out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BRGCKT|ABRCKT:inst|ABRCKT_DP:dp|reg_8:register
+clk => pout[0]~reg0.CLK
+clk => pout[1]~reg0.CLK
+clk => pout[2]~reg0.CLK
+clk => pout[3]~reg0.CLK
+clk => pout[4]~reg0.CLK
+clk => pout[5]~reg0.CLK
+clk => pout[6]~reg0.CLK
+clk => pout[7]~reg0.CLK
+ld => pout[0]~reg0.ENA
+ld => pout[1]~reg0.ENA
+ld => pout[2]~reg0.ENA
+ld => pout[3]~reg0.ENA
+ld => pout[4]~reg0.ENA
+ld => pout[5]~reg0.ENA
+ld => pout[6]~reg0.ENA
+ld => pout[7]~reg0.ENA
+pin[0] => pout[0]~reg0.DATAIN
+pin[1] => pout[1]~reg0.DATAIN
+pin[2] => pout[2]~reg0.DATAIN
+pin[3] => pout[3]~reg0.DATAIN
+pin[4] => pout[4]~reg0.DATAIN
+pin[5] => pout[5]~reg0.DATAIN
+pin[6] => pout[6]~reg0.DATAIN
+pin[7] => pout[7]~reg0.DATAIN
+pout[0] <= pout[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pout[1] <= pout[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pout[2] <= pout[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pout[3] <= pout[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pout[4] <= pout[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pout[5] <= pout[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pout[6] <= pout[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+pout[7] <= pout[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BRGCKT|ABRCKT:inst|ABRCKT_CT:dt
+ABUD => Selector1.IN2
+ABUD => Selector0.IN2
+UxRX => Selector1.IN3
+UxRX => Selector2.IN3
+UxRX => Selector2.IN1
+UxRX => Selector3.IN1
+BRGCLK => ps~1.DATAIN
+UxRXIF <= reg_ld.DB_MAX_OUTPUT_PORT_TYPE
+cnt_en <= cnt_en.DB_MAX_OUTPUT_PORT_TYPE
+cnt_rst <= cnt_rst.DB_MAX_OUTPUT_PORT_TYPE
+reg_ld <= reg_ld.DB_MAX_OUTPUT_PORT_TYPE
+
+

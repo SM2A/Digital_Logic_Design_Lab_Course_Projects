@@ -1,0 +1,8 @@
+
+State Machine - |ABRCKT|ABRCKT_CT:dt|ps
+Name ps.count ps.init ps.ready ps.idle ps.stop 
+ps.idle 0 0 0 0 0 
+ps.ready 0 0 1 1 0 
+ps.init 0 1 0 1 0 
+ps.count 1 0 0 1 0 
+ps.stop 0 0 0 1 1 

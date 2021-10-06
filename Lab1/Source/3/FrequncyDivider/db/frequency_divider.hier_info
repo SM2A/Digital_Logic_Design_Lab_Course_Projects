@@ -1,0 +1,75 @@
+|frequency_divider
+o3 <= 74193:inst.QD
+i3 => 74193:inst.D
+i2 => 74193:inst.C
+i1 => 74193:inst.B
+i0 => 74193:inst.A
+clk => 74193:inst.UP
+i7 => 74193:inst1.D
+i6 => 74193:inst1.C
+i5 => 74193:inst1.B
+i4 => 74193:inst1.A
+preset => inst5.IN1
+preset => 7476:inst3.1PRN
+preset => 7476:inst3.1CLRN
+o2 <= 74193:inst.QC
+o1 <= 74193:inst.QB
+o0 <= 74193:inst.QA
+o7 <= 74193:inst1.QD
+o6 <= 74193:inst1.QC
+o5 <= 74193:inst1.QB
+o4 <= 74193:inst1.QA
+co <= 7476:inst3.1Q
+
+
+|frequency_divider|74193:inst
+BON <= 28.DB_MAX_OUTPUT_PORT_TYPE
+CLR => 44.IN0
+LDN => 43.IN0
+B => 53.IN2
+A => 52.IN2
+DN => 90.IN0
+UP => 89.IN0
+C => 54.IN2
+D => 55.IN2
+CON <= 27.DB_MAX_OUTPUT_PORT_TYPE
+QD <= 23.DB_MAX_OUTPUT_PORT_TYPE
+QC <= 24.DB_MAX_OUTPUT_PORT_TYPE
+QB <= 25.DB_MAX_OUTPUT_PORT_TYPE
+QA <= 26.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|frequency_divider|74193:inst1
+BON <= 28.DB_MAX_OUTPUT_PORT_TYPE
+CLR => 44.IN0
+LDN => 43.IN0
+B => 53.IN2
+A => 52.IN2
+DN => 90.IN0
+UP => 89.IN0
+C => 54.IN2
+D => 55.IN2
+CON <= 27.DB_MAX_OUTPUT_PORT_TYPE
+QD <= 23.DB_MAX_OUTPUT_PORT_TYPE
+QC <= 24.DB_MAX_OUTPUT_PORT_TYPE
+QB <= 25.DB_MAX_OUTPUT_PORT_TYPE
+QA <= 26.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|frequency_divider|7476:inst3
+2QN <= 5.DB_MAX_OUTPUT_PORT_TYPE
+2PRN => 7.PRESET
+2CLRN => 7.ACLR
+2K => 7.IN0
+2J => 7.IN1
+2CLK => 7.CLK
+2Q <= 7.DB_MAX_OUTPUT_PORT_TYPE
+1QN <= 6.DB_MAX_OUTPUT_PORT_TYPE
+1PRN => 8.PRESET
+1CLRN => 8.ACLR
+1K => 8.IN0
+1J => 8.IN1
+1CLK => 8.CLK
+1Q <= 8.DB_MAX_OUTPUT_PORT_TYPE
+
+

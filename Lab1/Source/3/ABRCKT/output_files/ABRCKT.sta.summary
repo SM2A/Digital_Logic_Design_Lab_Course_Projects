@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 125C Model Setup 'ABRCKT_CT:dt|ps.count'
+Slack : -4.684
+TNS   : -129.945
+
+Type  : Slow 1200mV 125C Model Setup 'BRGCLK'
+Slack : -3.857
+TNS   : -18.624
+
+Type  : Slow 1200mV 125C Model Hold 'BRGCLK'
+Slack : 0.140
+TNS   : 0.000
+
+Type  : Slow 1200mV 125C Model Hold 'ABRCKT_CT:dt|ps.count'
+Slack : 0.823
+TNS   : 0.000
+
+Type  : Slow 1200mV 125C Model Recovery 'BRGCLK'
+Slack : -0.527
+TNS   : -4.216
+
+Type  : Slow 1200mV 125C Model Removal 'BRGCLK'
+Slack : 1.040
+TNS   : 0.000
+
+Type  : Slow 1200mV 125C Model Minimum Pulse Width 'BRGCLK'
+Slack : -3.000
+TNS   : -34.227
+
+Type  : Slow 1200mV 125C Model Minimum Pulse Width 'ABRCKT_CT:dt|ps.count'
+Slack : 0.422
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Setup 'ABRCKT_CT:dt|ps.count'
+Slack : -3.852
+TNS   : -106.741
+
+Type  : Slow 1200mV -40C Model Setup 'BRGCLK'
+Slack : -3.235
+TNS   : -13.185
+
+Type  : Slow 1200mV -40C Model Hold 'BRGCLK'
+Slack : 0.142
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Hold 'ABRCKT_CT:dt|ps.count'
+Slack : 0.578
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Recovery 'BRGCLK'
+Slack : -0.292
+TNS   : -2.336
+
+Type  : Slow 1200mV -40C Model Removal 'BRGCLK'
+Slack : 0.887
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'BRGCLK'
+Slack : -3.000
+TNS   : -29.985
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'ABRCKT_CT:dt|ps.count'
+Slack : 0.408
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Setup 'BRGCLK'
+Slack : -1.638
+TNS   : -3.365
+
+Type  : Fast 1200mV -40C Model Setup 'ABRCKT_CT:dt|ps.count'
+Slack : -1.559
+TNS   : -43.158
+
+Type  : Fast 1200mV -40C Model Hold 'BRGCLK'
+Slack : -0.061
+TNS   : -0.061
+
+Type  : Fast 1200mV -40C Model Hold 'ABRCKT_CT:dt|ps.count'
+Slack : 0.167
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Recovery 'BRGCLK'
+Slack : 0.290
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Removal 'BRGCLK'
+Slack : 0.475
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'BRGCLK'
+Slack : -3.000
+TNS   : -25.400
+
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'ABRCKT_CT:dt|ps.count'
+Slack : 0.348
+TNS   : 0.000
+
+------------------------------------------------------------
