@@ -1,0 +1,20 @@
+
+State Machine - |wrapper|exponential:inst|controller:control|ps
+Name ps.Add ps.Mult2 ps.Mult1 ps.Begin ps.Initialization ps.Idle 
+ps.Idle 0 0 0 0 0 0 
+ps.Initialization 0 0 0 0 1 1 
+ps.Begin 0 0 0 1 0 1 
+ps.Mult1 0 0 1 0 0 1 
+ps.Mult2 0 1 0 0 0 1 
+ps.Add 1 0 0 0 0 1 
+
+State Machine - |wrapper|wrapper_ctrl:inst9|ps
+Name ps.write ps.shift ps.calc ps.check ps.load ps.ready ps.idle ps.finish 
+ps.idle 0 0 0 0 0 0 0 0 
+ps.ready 0 0 0 0 0 1 1 0 
+ps.load 0 0 0 0 1 0 1 0 
+ps.check 0 0 0 1 0 0 1 0 
+ps.calc 0 0 1 0 0 0 1 0 
+ps.shift 0 1 0 0 0 0 1 0 
+ps.write 1 0 0 0 0 0 1 0 
+ps.finish 0 0 0 0 0 0 1 1 

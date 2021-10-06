@@ -1,0 +1,878 @@
+Analysis & Synthesis report for integrated
+Sat Jun 19 15:20:21 2021
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. State Machine - |integrated|frequency_multiplier:inst|controller_:ct_|ps
+ 12. State Machine - |integrated|wrapper:inst5|wrapper_ctrl:b2v_inst9|ps
+ 13. State Machine - |integrated|wrapper:inst5|exponential:b2v_inst|controller:control|ps
+ 14. User-Specified and Inferred Latches
+ 15. Registers Removed During Synthesis
+ 16. General Register Statistics
+ 17. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 18. Source assignments for wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|altsyncram_5rd1:FIFOram
+ 19. Parameter Settings for User Entity Instance: wrapper:inst5|exponential:b2v_inst|controller:control
+ 20. Parameter Settings for User Entity Instance: wrapper:inst5|shift_register:b2v_inst1
+ 21. Parameter Settings for User Entity Instance: wrapper:inst5|shift_register:b2v_inst2
+ 22. Parameter Settings for User Entity Instance: wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component
+ 23. Parameter Settings for User Entity Instance: wrapper:inst5|wrapper_ctrl:b2v_inst9
+ 24. Parameter Settings for User Entity Instance: frequency_multiplier:inst|controller_:ct_
+ 25. Parameter Settings for Inferred Entity Instance: wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult|lpm_mult:Mult0
+ 26. scfifo Parameter Settings by Entity Instance
+ 27. lpm_mult Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "wrapper:inst5|shift_register:b2v_inst2"
+ 29. Port Connectivity Checks: "wrapper:inst5|shift_register:b2v_inst1"
+ 30. Port Connectivity Checks: "wrapper:inst5|exponential:b2v_inst|datapath:dP|adder:add"
+ 31. Port Connectivity Checks: "wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count"
+ 32. Port Connectivity Checks: "wrapper:inst5|exponential:b2v_inst"
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+ 35. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Jun 19 15:20:21 2021           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; integrated                                      ;
+; Top-level Entity Name              ; integrated                                      ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 318                                             ;
+;     Total combinational functions  ; 312                                             ;
+;     Dedicated logic registers      ; 172                                             ;
+; Total registers                    ; 172                                             ;
+; Total pins                         ; 53                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 84                                              ;
+; Embedded Multiplier 9-bit elements ; 2                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; integrated         ; integrated         ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                               ; Library ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------+---------+
+; frequency_multiplier.v           ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/frequency_multiplier.v  ;         ;
+; integrated.bdf                   ; yes             ; User Block Diagram/Schematic File  ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/integrated.bdf          ;         ;
+; source/adder.v                   ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/adder.v          ;         ;
+; source/Controller.v              ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/Controller.v     ;         ;
+; source/Counter.v                 ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/Counter.v        ;         ;
+; source/Datapath.v                ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/Datapath.v       ;         ;
+; source/exponential.v             ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/exponential.v    ;         ;
+; source/LUTExp.v                  ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/LUTExp.v         ;         ;
+; source/multiplier.v              ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/multiplier.v     ;         ;
+; source/mux2to1.v                 ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/mux2to1.v        ;         ;
+; source/register.v                ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/register.v       ;         ;
+; source/register_.v               ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/register_.v      ;         ;
+; source/register18.v              ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/register18.v     ;         ;
+; source/shift_register.v          ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/shift_register.v ;         ;
+; source/wrapper_ctrl.v            ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/wrapper_ctrl.v   ;         ;
+; source/wrapper.v                 ; yes             ; User Verilog HDL File              ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/source/wrapper.v        ;         ;
+; fifo.v                           ; yes             ; User Wizard-Generated File         ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/fifo.v                  ;         ;
+; scfifo.tdf                       ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/scfifo.tdf                               ;         ;
+; a_regfifo.inc                    ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_regfifo.inc                            ;         ;
+; a_dpfifo.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_dpfifo.inc                             ;         ;
+; a_i2fifo.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_i2fifo.inc                             ;         ;
+; a_fffifo.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_fffifo.inc                             ;         ;
+; a_f2fifo.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_f2fifo.inc                             ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                           ;         ;
+; db/scfifo_bh31.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/db/scfifo_bh31.tdf      ;         ;
+; db/a_dpfifo_in31.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/db/a_dpfifo_in31.tdf    ;         ;
+; db/altsyncram_5rd1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/db/altsyncram_5rd1.tdf  ;         ;
+; db/cmpr_fs8.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/db/cmpr_fs8.tdf         ;         ;
+; db/cntr_q9b.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/db/cntr_q9b.tdf         ;         ;
+; db/cntr_7a7.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/db/cntr_7a7.tdf         ;         ;
+; db/cntr_r9b.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/db/cntr_r9b.tdf         ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf                             ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc                          ;         ;
+; multcore.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc                             ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc                             ;         ;
+; altshift.inc                     ; yes             ; Megafunction                       ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc                             ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction        ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/db/mult_7dt.tdf         ;         ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                               ;
++---------------------------------------------+---------------------------------------------+
+; Resource                                    ; Usage                                       ;
++---------------------------------------------+---------------------------------------------+
+; Estimated Total logic elements              ; 318                                         ;
+;                                             ;                                             ;
+; Total combinational functions               ; 312                                         ;
+; Logic element usage by number of LUT inputs ;                                             ;
+;     -- 4 input functions                    ; 43                                          ;
+;     -- 3 input functions                    ; 176                                         ;
+;     -- <=2 input functions                  ; 93                                          ;
+;                                             ;                                             ;
+; Logic elements by mode                      ;                                             ;
+;     -- normal mode                          ; 264                                         ;
+;     -- arithmetic mode                      ; 48                                          ;
+;                                             ;                                             ;
+; Total registers                             ; 172                                         ;
+;     -- Dedicated logic registers            ; 172                                         ;
+;     -- I/O registers                        ; 0                                           ;
+;                                             ;                                             ;
+; I/O pins                                    ; 53                                          ;
+; Total memory bits                           ; 84                                          ;
+; Embedded Multiplier 9-bit elements          ; 2                                           ;
+; Maximum fan-out node                        ; frequency_multiplier:inst|datapath_:dp_|out ;
+; Maximum fan-out                             ; 140                                         ;
+; Total fan-out                               ; 1756                                        ;
+; Average fan-out                             ; 2.86                                        ;
++---------------------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                               ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                      ; Library Name ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |integrated                                 ; 312 (1)           ; 172 (0)      ; 84          ; 2            ; 0       ; 1         ; 53   ; 0            ; |integrated                                                                                                                              ; work         ;
+;    |frequency_multiplier:inst|              ; 126 (0)           ; 54 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|frequency_multiplier:inst                                                                                                    ; work         ;
+;       |controller_:ct_|                     ; 11 (11)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|frequency_multiplier:inst|controller_:ct_                                                                                    ; work         ;
+;       |datapath_:dp_|                       ; 115 (115)         ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|frequency_multiplier:inst|datapath_:dp_                                                                                      ; work         ;
+;    |wrapper:inst5|                          ; 185 (0)           ; 118 (0)      ; 84          ; 2            ; 0       ; 1         ; 0    ; 0            ; |integrated|wrapper:inst5                                                                                                                ; work         ;
+;       |exponential:b2v_inst|                ; 99 (0)            ; 60 (0)       ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst                                                                                           ; work         ;
+;          |controller:control|               ; 5 (5)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|controller:control                                                                        ; work         ;
+;          |datapath:dP|                      ; 94 (0)            ; 54 (0)       ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP                                                                               ; work         ;
+;             |LUT:lut|                       ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut                                                                       ; work         ;
+;             |counter:count|                 ; 5 (5)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count                                                                 ; work         ;
+;             |multiplier:mult|               ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult                                                               ; work         ;
+;                |lpm_mult:Mult0|             ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult|lpm_mult:Mult0                                                ; work         ;
+;                   |mult_7dt:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult|lpm_mult:Mult0|mult_7dt:auto_generated                        ; work         ;
+;             |mux2to1:mux|                   ; 16 (16)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|mux2to1:mux                                                                   ; work         ;
+;             |register18:rres|               ; 19 (19)           ; 18 (18)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|register18:rres                                                               ; work         ;
+;             |register:regx|                 ; 16 (16)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|register:regx                                                                 ; work         ;
+;             |register:rtemp|                ; 17 (17)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|register:rtemp                                                                ; work         ;
+;       |fifo:b2v_inst4|                      ; 20 (0)            ; 12 (0)       ; 84          ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|fifo:b2v_inst4                                                                                                 ; work         ;
+;          |scfifo:scfifo_component|          ; 20 (0)            ; 12 (0)       ; 84          ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component                                                                         ; work         ;
+;             |scfifo_bh31:auto_generated|    ; 20 (0)            ; 12 (0)       ; 84          ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated                                              ; work         ;
+;                |a_dpfifo_in31:dpfifo|       ; 20 (15)           ; 12 (7)       ; 84          ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo                         ; work         ;
+;                   |altsyncram_5rd1:FIFOram| ; 0 (0)             ; 0 (0)        ; 84          ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|altsyncram_5rd1:FIFOram ; work         ;
+;                   |cntr_7a7:usedw_counter|  ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|cntr_7a7:usedw_counter  ; work         ;
+;                   |cntr_q9b:rd_ptr_msb|     ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|cntr_q9b:rd_ptr_msb     ; work         ;
+;                   |cntr_r9b:wr_ptr|         ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|cntr_r9b:wr_ptr         ; work         ;
+;       |register_:b2v_inst3|                 ; 0 (0)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|register_:b2v_inst3                                                                                            ; work         ;
+;       |shift_register:b2v_inst1|            ; 17 (17)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|shift_register:b2v_inst1                                                                                       ; work         ;
+;       |shift_register:b2v_inst2|            ; 43 (43)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|shift_register:b2v_inst2                                                                                       ; work         ;
+;       |wrapper_ctrl:b2v_inst9|              ; 6 (6)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |integrated|wrapper:inst5|wrapper_ctrl:b2v_inst9                                                                                         ; work         ;
++---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                            ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                                    ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|altsyncram_5rd1:FIFOram|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4            ; 21           ; 4            ; 21           ; 84   ; None ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 1           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 2           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                ;
++--------+--------------+---------+--------------+--------------+------------------------------------------+---------------------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                          ; IP Include File                                                           ;
++--------+--------------+---------+--------------+--------------+------------------------------------------+---------------------------------------------------------------------------+
+; Altera ; FIFO         ; 13.0    ; N/A          ; N/A          ; |integrated|wrapper:inst5|fifo:b2v_inst4 ; C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/fifo.v ;
++--------+--------------+---------+--------------+--------------+------------------------------------------+---------------------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------+
+; State Machine - |integrated|frequency_multiplier:inst|controller_:ct_|ps                         ;
++--------------------+---------+----------+--------------------+--------------+----------+---------+
+; Name               ; ps.redo ; ps.count ; ps.load_calculated ; ps.calculate ; ps.ready ; ps.idle ;
++--------------------+---------+----------+--------------------+--------------+----------+---------+
+; ps.idle            ; 0       ; 0        ; 0                  ; 0            ; 0        ; 0       ;
+; ps.ready           ; 0       ; 0        ; 0                  ; 0            ; 1        ; 1       ;
+; ps.calculate       ; 0       ; 0        ; 0                  ; 1            ; 0        ; 1       ;
+; ps.load_calculated ; 0       ; 0        ; 1                  ; 0            ; 0        ; 1       ;
+; ps.count           ; 0       ; 1        ; 0                  ; 0            ; 0        ; 1       ;
+; ps.redo            ; 1       ; 0        ; 0                  ; 0            ; 0        ; 1       ;
++--------------------+---------+----------+--------------------+--------------+----------+---------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |integrated|wrapper:inst5|wrapper_ctrl:b2v_inst9|ps                             ;
++-----------+----------+----------+---------+----------+---------+----------+---------+-----------+
+; Name      ; ps.write ; ps.shift ; ps.calc ; ps.check ; ps.load ; ps.ready ; ps.idle ; ps.finish ;
++-----------+----------+----------+---------+----------+---------+----------+---------+-----------+
+; ps.idle   ; 0        ; 0        ; 0       ; 0        ; 0       ; 0        ; 0       ; 0         ;
+; ps.ready  ; 0        ; 0        ; 0       ; 0        ; 0       ; 1        ; 1       ; 0         ;
+; ps.load   ; 0        ; 0        ; 0       ; 0        ; 1       ; 0        ; 1       ; 0         ;
+; ps.check  ; 0        ; 0        ; 0       ; 1        ; 0       ; 0        ; 1       ; 0         ;
+; ps.calc   ; 0        ; 0        ; 1       ; 0        ; 0       ; 0        ; 1       ; 0         ;
+; ps.shift  ; 0        ; 1        ; 0       ; 0        ; 0       ; 0        ; 1       ; 0         ;
+; ps.write  ; 1        ; 0        ; 0       ; 0        ; 0       ; 0        ; 1       ; 0         ;
+; ps.finish ; 0        ; 0        ; 0       ; 0        ; 0       ; 0        ; 1       ; 1         ;
++-----------+----------+----------+---------+----------+---------+----------+---------+-----------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------+
+; State Machine - |integrated|wrapper:inst5|exponential:b2v_inst|controller:control|ps      ;
++-------------------+--------+----------+----------+----------+-------------------+---------+
+; Name              ; ps.Add ; ps.Mult2 ; ps.Mult1 ; ps.Begin ; ps.Initialization ; ps.Idle ;
++-------------------+--------+----------+----------+----------+-------------------+---------+
+; ps.Idle           ; 0      ; 0        ; 0        ; 0        ; 0                 ; 0       ;
+; ps.Initialization ; 0      ; 0        ; 0        ; 0        ; 1                 ; 1       ;
+; ps.Begin          ; 0      ; 0        ; 0        ; 1        ; 0                 ; 1       ;
+; ps.Mult1          ; 0      ; 0        ; 1        ; 0        ; 0                 ; 1       ;
+; ps.Mult2          ; 0      ; 1        ; 0        ; 0        ; 0                 ; 1       ;
+; ps.Add            ; 1      ; 0        ; 0        ; 0        ; 0                 ; 1       ;
++-------------------+--------+----------+----------+----------+-------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                             ;
++------------------------------------------------------------------+---------------------------------------------------------------------+------------------------+
+; Latch Name                                                       ; Latch Enable Signal                                                 ; Free of Timing Hazards ;
++------------------------------------------------------------------+---------------------------------------------------------------------+------------------------+
+; frequency_multiplier:inst|controller_:ct_|ns.count_138           ; frequency_multiplier:inst|controller_:ct_|Selector9                 ; yes                    ;
+; frequency_multiplier:inst|controller_:ct_|ns.redo_127            ; GND                                                                 ; yes                    ;
+; frequency_multiplier:inst|controller_:ct_|ns.load_calculated_149 ; frequency_multiplier:inst|controller_:ct_|Selector9                 ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[0]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[1]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[2]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[3]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[4]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[5]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[6]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[7]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[8]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[9]  ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[10] ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[11] ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[12] ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[13] ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[14] ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[15] ; wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3] ; yes                    ;
+; frequency_multiplier:inst|controller_:ct_|ns.calculate_160       ; frequency_multiplier:inst|controller_:ct_|Selector9                 ; yes                    ;
+; frequency_multiplier:inst|controller_:ct_|ns.ready_171           ; frequency_multiplier:inst|controller_:ct_|Selector9                 ; yes                    ;
+; Number of user-specified and inferred latches = 21               ;                                                                     ;                        ;
++------------------------------------------------------------------+---------------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++------------------------------------------------------------+----------------------------------------+
+; Register name                                              ; Reason for Removal                     ;
++------------------------------------------------------------+----------------------------------------+
+; frequency_multiplier:inst|controller_:ct_|ps~4             ; Lost fanout                            ;
+; frequency_multiplier:inst|controller_:ct_|ps~5             ; Lost fanout                            ;
+; frequency_multiplier:inst|controller_:ct_|ps~6             ; Lost fanout                            ;
+; wrapper:inst5|wrapper_ctrl:b2v_inst9|ps~2                  ; Lost fanout                            ;
+; wrapper:inst5|wrapper_ctrl:b2v_inst9|ps~3                  ; Lost fanout                            ;
+; wrapper:inst5|wrapper_ctrl:b2v_inst9|ps~4                  ; Lost fanout                            ;
+; wrapper:inst5|exponential:b2v_inst|controller:control|ps~4 ; Lost fanout                            ;
+; wrapper:inst5|exponential:b2v_inst|controller:control|ps~5 ; Lost fanout                            ;
+; wrapper:inst5|exponential:b2v_inst|controller:control|ps~6 ; Lost fanout                            ;
+; wrapper:inst5|wrapper_ctrl:b2v_inst9|ps.finish             ; Stuck at GND due to stuck port data_in ;
+; frequency_multiplier:inst|controller_:ct_|ps.idle          ; Lost fanout                            ;
+; frequency_multiplier:inst|datapath_:dp_|duration[15]       ; Lost fanout                            ;
+; Total Number of Removed Registers = 12                     ;                                        ;
++------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 172   ;
+; Number of registers using Synchronous Clear  ; 5     ;
+; Number of registers using Synchronous Load   ; 68    ;
+; Number of registers using Asynchronous Clear ; 7     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 142   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+; 3:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |integrated|wrapper:inst5|shift_register:b2v_inst1|pout[12]                          ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|register:regx|r_out[9]    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count|out[3]      ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|register18:rres|r_out[12] ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |integrated|frequency_multiplier:inst|datapath_:dp_|duration[1]                      ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; Yes        ; |integrated|frequency_multiplier:inst|datapath_:dp_|counter[13]                      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |integrated|wrapper:inst5|shift_register:b2v_inst2|pout[1]                           ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |integrated|wrapper:inst5|shift_register:b2v_inst2|pout[8]                           ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |integrated|wrapper:inst5|shift_register:b2v_inst2|pout[19]                          ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |integrated|wrapper:inst5|exponential:b2v_inst|datapath:dP|register:rtemp|r_out[7]   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |integrated|frequency_multiplier:inst|datapath_:dp_|ShiftRight0                      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |integrated|frequency_multiplier:inst|datapath_:dp_|ShiftRight0                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|altsyncram_5rd1:FIFOram ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                    ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                     ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wrapper:inst5|exponential:b2v_inst|controller:control ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; Idle           ; 000   ; Unsigned Binary                                                           ;
+; Initialization ; 001   ; Unsigned Binary                                                           ;
+; Begin          ; 010   ; Unsigned Binary                                                           ;
+; Mult1          ; 011   ; Unsigned Binary                                                           ;
+; Mult2          ; 100   ; Unsigned Binary                                                           ;
+; Add            ; 101   ; Unsigned Binary                                                           ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wrapper:inst5|shift_register:b2v_inst1 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wrapper:inst5|shift_register:b2v_inst2 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; N              ; 21    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component ;
++-------------------------+--------------+----------------------------------------------------------+
+; Parameter Name          ; Value        ; Type                                                     ;
++-------------------------+--------------+----------------------------------------------------------+
+; AUTO_CARRY_CHAINS       ; ON           ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS    ; OFF          ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS     ; ON           ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS  ; OFF          ; IGNORE_CASCADE                                           ;
+; lpm_width               ; 21           ; Signed Integer                                           ;
+; LPM_NUMWORDS            ; 4            ; Signed Integer                                           ;
+; LPM_WIDTHU              ; 2            ; Signed Integer                                           ;
+; LPM_SHOWAHEAD           ; OFF          ; Untyped                                                  ;
+; UNDERFLOW_CHECKING      ; ON           ; Untyped                                                  ;
+; OVERFLOW_CHECKING       ; ON           ; Untyped                                                  ;
+; ALLOW_RWCYCLE_WHEN_FULL ; OFF          ; Untyped                                                  ;
+; ADD_RAM_OUTPUT_REGISTER ; ON           ; Untyped                                                  ;
+; ALMOST_FULL_VALUE       ; 0            ; Untyped                                                  ;
+; ALMOST_EMPTY_VALUE      ; 0            ; Untyped                                                  ;
+; USE_EAB                 ; ON           ; Untyped                                                  ;
+; MAXIMIZE_SPEED          ; 5            ; Untyped                                                  ;
+; DEVICE_FAMILY           ; Cyclone IV E ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED      ; 5            ; Untyped                                                  ;
+; CBXI_PARAMETER          ; scfifo_bh31  ; Untyped                                                  ;
++-------------------------+--------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: wrapper:inst5|wrapper_ctrl:b2v_inst9 ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; idle           ; 0000  ; Unsigned Binary                                          ;
+; ready          ; 0001  ; Unsigned Binary                                          ;
+; load           ; 0010  ; Unsigned Binary                                          ;
+; check          ; 0011  ; Unsigned Binary                                          ;
+; calc           ; 0100  ; Unsigned Binary                                          ;
+; shift          ; 0101  ; Unsigned Binary                                          ;
+; write          ; 0110  ; Unsigned Binary                                          ;
+; finish         ; 1111  ; Unsigned Binary                                          ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: frequency_multiplier:inst|controller_:ct_ ;
++-----------------+-------+--------------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                         ;
++-----------------+-------+--------------------------------------------------------------+
+; idle            ; 000   ; Unsigned Binary                                              ;
+; ready           ; 001   ; Unsigned Binary                                              ;
+; calculate       ; 010   ; Unsigned Binary                                              ;
+; load_calculated ; 011   ; Unsigned Binary                                              ;
+; count           ; 100   ; Unsigned Binary                                              ;
+; redo            ; 101   ; Unsigned Binary                                              ;
++-----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+----------------------------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                                           ;
++------------------------------------------------+--------------+----------------------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                                     ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                                   ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                                   ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                                                 ;
+; LPM_WIDTHA                                     ; 16           ; Untyped                                                        ;
+; LPM_WIDTHB                                     ; 16           ; Untyped                                                        ;
+; LPM_WIDTHP                                     ; 32           ; Untyped                                                        ;
+; LPM_WIDTHR                                     ; 32           ; Untyped                                                        ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                                        ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                                        ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                                        ;
+; LATENCY                                        ; 0            ; Untyped                                                        ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                                        ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                                        ;
+; USE_EAB                                        ; OFF          ; Untyped                                                        ;
+; MAXIMIZE_SPEED                                 ; 6            ; Untyped                                                        ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                                        ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                                        ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                                            ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                                        ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                                        ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                                        ;
+; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped                                                        ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                                        ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                                        ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                                        ;
++------------------------------------------------+--------------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; scfifo Parameter Settings by Entity Instance                                      ;
++----------------------------+------------------------------------------------------+
+; Name                       ; Value                                                ;
++----------------------------+------------------------------------------------------+
+; Number of entity instances ; 1                                                    ;
+; Entity Instance            ; wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component ;
+;     -- FIFO Type           ; Single Clock                                         ;
+;     -- lpm_width           ; 21                                                   ;
+;     -- LPM_NUMWORDS        ; 4                                                    ;
+;     -- LPM_SHOWAHEAD       ; OFF                                                  ;
+;     -- USE_EAB             ; ON                                                   ;
++----------------------------+------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                                        ;
++---------------------------------------+-------------------------------------------------------------------------------+
+; Name                                  ; Value                                                                         ;
++---------------------------------------+-------------------------------------------------------------------------------+
+; Number of entity instances            ; 1                                                                             ;
+; Entity Instance                       ; wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                                                            ;
+;     -- LPM_WIDTHB                     ; 16                                                                            ;
+;     -- LPM_WIDTHP                     ; 32                                                                            ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                                      ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                                            ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                                            ;
+;     -- USE_EAB                        ; OFF                                                                           ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                                          ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                                            ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                                            ;
++---------------------------------------+-------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "wrapper:inst5|shift_register:b2v_inst2" ;
++-------------+-------+----------+-----------------------------------+
+; Port        ; Type  ; Severity ; Details                           ;
++-------------+-------+----------+-----------------------------------+
+; pin[20..18] ; Input ; Info     ; Stuck at GND                      ;
++-------------+-------+----------+-----------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "wrapper:inst5|shift_register:b2v_inst1" ;
++--------+-------+----------+----------------------------------------+
+; Port   ; Type  ; Severity ; Details                                ;
++--------+-------+----------+----------------------------------------+
+; num[1] ; Input ; Info     ; Stuck at GND                           ;
+; num[0] ; Input ; Info     ; Stuck at VCC                           ;
++--------+-------+----------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wrapper:inst5|exponential:b2v_inst|datapath:dP|adder:add" ;
++-----------+-------+----------+-------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                               ;
++-----------+-------+----------+-------------------------------------------------------+
+; b[17..16] ; Input ; Info     ; Stuck at GND                                          ;
++-----------+-------+----------+-------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count" ;
++------+-------+----------+----------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                        ;
++------+-------+----------+----------------------------------------------------------------+
+; in   ; Input ; Info     ; Stuck at GND                                                   ;
++------+-------+----------+----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "wrapper:inst5|exponential:b2v_inst"                                                                                                         ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; rst  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Jun 19 15:20:15 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off integrated -c integrated
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 3 design units, including 3 entities, in source file frequency_multiplier.v
+    Info (12023): Found entity 1: frequency_multiplier
+    Info (12023): Found entity 2: datapath_
+    Info (12023): Found entity 3: controller_
+Info (12021): Found 1 design units, including 1 entities, in source file integrated.bdf
+    Info (12023): Found entity 1: integrated
+Info (12021): Found 1 design units, including 1 entities, in source file source/adder.v
+    Info (12023): Found entity 1: adder
+Info (12021): Found 1 design units, including 1 entities, in source file source/controller.v
+    Info (12023): Found entity 1: controller
+Info (12021): Found 1 design units, including 1 entities, in source file source/counter.v
+    Info (12023): Found entity 1: counter
+Info (12021): Found 1 design units, including 1 entities, in source file source/datapath.v
+    Info (12023): Found entity 1: datapath
+Info (12021): Found 1 design units, including 1 entities, in source file source/exponential.v
+    Info (12023): Found entity 1: exponential
+Info (12021): Found 1 design units, including 1 entities, in source file source/lutexp.v
+    Info (12023): Found entity 1: LUT
+Info (12021): Found 1 design units, including 1 entities, in source file source/multiplier.v
+    Info (12023): Found entity 1: multiplier
+Info (12021): Found 1 design units, including 1 entities, in source file source/mux2to1.v
+    Info (12023): Found entity 1: mux2to1
+Info (12021): Found 1 design units, including 1 entities, in source file source/register.v
+    Info (12023): Found entity 1: register
+Info (12021): Found 1 design units, including 1 entities, in source file source/register_.v
+    Info (12023): Found entity 1: register_
+Info (12021): Found 1 design units, including 1 entities, in source file source/register18.v
+    Info (12023): Found entity 1: register18
+Info (12021): Found 1 design units, including 1 entities, in source file source/shift_register.v
+    Info (12023): Found entity 1: shift_register
+Info (12021): Found 1 design units, including 1 entities, in source file source/wrapper_ctrl.v
+    Info (12023): Found entity 1: wrapper_ctrl
+Info (12021): Found 1 design units, including 1 entities, in source file source/wrapper.v
+    Info (12023): Found entity 1: wrapper
+Info (12021): Found 1 design units, including 1 entities, in source file fifo.v
+    Info (12023): Found entity 1: fifo
+Info (12127): Elaborating entity "integrated" for the top level hierarchy
+Info (12128): Elaborating entity "wrapper" for hierarchy "wrapper:inst5"
+Info (12128): Elaborating entity "exponential" for hierarchy "wrapper:inst5|exponential:b2v_inst"
+Info (12128): Elaborating entity "controller" for hierarchy "wrapper:inst5|exponential:b2v_inst|controller:control"
+Info (12128): Elaborating entity "datapath" for hierarchy "wrapper:inst5|exponential:b2v_inst|datapath:dP"
+Info (12128): Elaborating entity "register" for hierarchy "wrapper:inst5|exponential:b2v_inst|datapath:dP|register:regx"
+Info (12128): Elaborating entity "counter" for hierarchy "wrapper:inst5|exponential:b2v_inst|datapath:dP|counter:count"
+Info (12128): Elaborating entity "LUT" for hierarchy "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut"
+Warning (10270): Verilog HDL Case Statement warning at LUTExp.v(4): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at LUTExp.v(3): inferring latch(es) for variable "datat", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "datat[0]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[1]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[2]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[3]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[4]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[5]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[6]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[7]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[8]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[9]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[10]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[11]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[12]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[13]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[14]" at LUTExp.v(3)
+Info (10041): Inferred latch for "datat[15]" at LUTExp.v(3)
+Info (12128): Elaborating entity "mux2to1" for hierarchy "wrapper:inst5|exponential:b2v_inst|datapath:dP|mux2to1:mux"
+Info (12128): Elaborating entity "multiplier" for hierarchy "wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult"
+Info (12128): Elaborating entity "adder" for hierarchy "wrapper:inst5|exponential:b2v_inst|datapath:dP|adder:add"
+Info (12128): Elaborating entity "register18" for hierarchy "wrapper:inst5|exponential:b2v_inst|datapath:dP|register18:rres"
+Info (12128): Elaborating entity "shift_register" for hierarchy "wrapper:inst5|shift_register:b2v_inst1"
+Info (12128): Elaborating entity "shift_register" for hierarchy "wrapper:inst5|shift_register:b2v_inst2"
+Info (12128): Elaborating entity "register_" for hierarchy "wrapper:inst5|register_:b2v_inst3"
+Info (12128): Elaborating entity "fifo" for hierarchy "wrapper:inst5|fifo:b2v_inst4"
+Info (12128): Elaborating entity "scfifo" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component"
+Info (12130): Elaborated megafunction instantiation "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component"
+Info (12133): Instantiated megafunction "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component" with the following parameter:
+    Info (12134): Parameter "add_ram_output_register" = "ON"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_numwords" = "4"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "scfifo"
+    Info (12134): Parameter "lpm_width" = "21"
+    Info (12134): Parameter "lpm_widthu" = "2"
+    Info (12134): Parameter "overflow_checking" = "ON"
+    Info (12134): Parameter "underflow_checking" = "ON"
+    Info (12134): Parameter "use_eab" = "ON"
+Info (12021): Found 1 design units, including 1 entities, in source file db/scfifo_bh31.tdf
+    Info (12023): Found entity 1: scfifo_bh31
+Info (12128): Elaborating entity "scfifo_bh31" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_dpfifo_in31.tdf
+    Info (12023): Found entity 1: a_dpfifo_in31
+Info (12128): Elaborating entity "a_dpfifo_in31" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5rd1.tdf
+    Info (12023): Found entity 1: altsyncram_5rd1
+Info (12128): Elaborating entity "altsyncram_5rd1" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|altsyncram_5rd1:FIFOram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_fs8.tdf
+    Info (12023): Found entity 1: cmpr_fs8
+Info (12128): Elaborating entity "cmpr_fs8" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|cmpr_fs8:almost_full_comparer"
+Info (12128): Elaborating entity "cmpr_fs8" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|cmpr_fs8:two_comparison"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_q9b.tdf
+    Info (12023): Found entity 1: cntr_q9b
+Info (12128): Elaborating entity "cntr_q9b" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|cntr_q9b:rd_ptr_msb"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_7a7.tdf
+    Info (12023): Found entity 1: cntr_7a7
+Info (12128): Elaborating entity "cntr_7a7" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|cntr_7a7:usedw_counter"
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_r9b.tdf
+    Info (12023): Found entity 1: cntr_r9b
+Info (12128): Elaborating entity "cntr_r9b" for hierarchy "wrapper:inst5|fifo:b2v_inst4|scfifo:scfifo_component|scfifo_bh31:auto_generated|a_dpfifo_in31:dpfifo|cntr_r9b:wr_ptr"
+Info (12128): Elaborating entity "wrapper_ctrl" for hierarchy "wrapper:inst5|wrapper_ctrl:b2v_inst9"
+Warning (10270): Verilog HDL Case Statement warning at wrapper_ctrl.v(23): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at wrapper_ctrl.v(23): all case item expressions in this case statement are onehot
+Info (12128): Elaborating entity "frequency_multiplier" for hierarchy "frequency_multiplier:inst"
+Info (12128): Elaborating entity "datapath_" for hierarchy "frequency_multiplier:inst|datapath_:dp_"
+Warning (10230): Verilog HDL assignment warning at frequency_multiplier.v(27): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at frequency_multiplier.v(32): truncated value with size 32 to match size of target (16)
+Info (12128): Elaborating entity "controller_" for hierarchy "frequency_multiplier:inst|controller_:ct_"
+Warning (10240): Verilog HDL Always Construct warning at frequency_multiplier.v(51): inferring latch(es) for variable "ns", which holds its previous value in one or more paths through the always construct
+Warning (10270): Verilog HDL Case Statement warning at frequency_multiplier.v(68): incomplete case statement has no default case item
+Info (10264): Verilog HDL Case Statement information at frequency_multiplier.v(68): all case item expressions in this case statement are onehot
+Info (10041): Inferred latch for "ns.redo" at frequency_multiplier.v(51)
+Info (10041): Inferred latch for "ns.count" at frequency_multiplier.v(51)
+Info (10041): Inferred latch for "ns.load_calculated" at frequency_multiplier.v(51)
+Info (10041): Inferred latch for "ns.calculate" at frequency_multiplier.v(51)
+Info (10041): Inferred latch for "ns.ready" at frequency_multiplier.v(51)
+Info (10041): Inferred latch for "ns.idle" at frequency_multiplier.v(51)
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult|Mult0"
+Info (12130): Elaborated megafunction instantiation "wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "wrapper:inst5|exponential:b2v_inst|datapath:dP|multiplier:mult|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "32"
+    Info (12134): Parameter "LPM_WIDTHR" = "32"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
+    Info (12023): Found entity 1: mult_7dt
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[12]" merged with LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[0]"
+    Info (13026): Duplicate LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[8]" merged with LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[0]"
+    Info (13026): Duplicate LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[6]" merged with LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[2]"
+    Info (13026): Duplicate LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[11]" merged with LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[3]"
+    Info (13026): Duplicate LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[9]" merged with LATCH primitive "wrapper:inst5|exponential:b2v_inst|datapath:dP|LUT:lut|datat[5]"
+Warning (13012): Latch frequency_multiplier:inst|controller_:ct_|ns.calculate_160 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal adjust
+Warning (13012): Latch frequency_multiplier:inst|controller_:ct_|ns.ready_171 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal adjust
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "done" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/output_files/integrated.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 410 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 27 input pins
+    Info (21059): Implemented 26 output pins
+    Info (21061): Implemented 334 logic cells
+    Info (21064): Implemented 21 RAM segments
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 4604 megabytes
+    Info: Processing ended: Sat Jun 19 15:20:21 2021
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:06
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/SM2A/Documents/ModelSim Projects/lab4_Q/Integrated Ciruit/output_files/integrated.map.smsg.
+
+

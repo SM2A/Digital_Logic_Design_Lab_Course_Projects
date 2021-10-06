@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="wrapper">
+		<CBX_INST_ENTRY INSTANCE_NAME="|wrapper|exponential:inst|datapath:dP|multiplier:mult|lpm_mult:Mult0" CBX_FILE_NAME="mult_7dt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|wrapper|fifo:inst4|scfifo:scfifo_component" CBX_FILE_NAME="scfifo_bh31.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

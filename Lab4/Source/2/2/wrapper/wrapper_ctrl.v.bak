@@ -1,0 +1,3 @@
+module wrapper_ctrl(input clk,start,eng_done,output reg done,wr_req,eng_start,sr_ld,sc_ld,r_ld,sr_en,sc_en);
+    
+endmodule
