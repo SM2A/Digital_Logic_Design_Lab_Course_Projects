@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat May 22 15:04:24 2021
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : amps
+Top-level Entity Name : amps
+Family : Cyclone IV E
+Device : EP4CE6E22C6
+Timing Models : Final
+Total logic elements : 306 / 6,272 ( 5 % )
+    Total combinational functions : 305 / 6,272 ( 5 % )
+    Dedicated logic registers : 114 / 6,272 ( 2 % )
+Total registers : 114
+Total pins : 33 / 92 ( 36 % )
+Total virtual pins : 0
+Total memory bits : 2,048 / 276,480 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

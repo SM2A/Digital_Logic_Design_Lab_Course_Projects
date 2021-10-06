@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="wg">
+		<CBX_INST_ENTRY INSTANCE_NAME="|wg|rom_1:inst5|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_s1f1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|wg|wgp:inst|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_nhm.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
