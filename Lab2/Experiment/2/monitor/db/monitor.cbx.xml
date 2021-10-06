@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="monitor">
+		<CBX_INST_ENTRY INSTANCE_NAME="|monitor|lpm_mux1:inst7|lpm_mux:LPM_MUX_component" CBX_FILE_NAME="mux_7rc.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

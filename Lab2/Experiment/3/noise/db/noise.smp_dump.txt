@@ -1,0 +1,7 @@
+
+State Machine - |noise|ps
+Name ps.nc0 ps.s1 ps.nc1 ps.wf1 
+ps.wf1 0 0 0 0 
+ps.nc1 0 0 1 1 
+ps.s1 0 1 0 1 
+ps.nc0 1 0 0 1 

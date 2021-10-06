@@ -1,0 +1,14 @@
+vendor_name = ModelSim
+source_file = 1, C:/Users/SM2A/Documents/ModelSim Projects/lab2_Q/noise/noise.v
+source_file = 1, C:/Users/SM2A/Documents/ModelSim Projects/lab2_Q/noise/db/noise.cbx.xml
+design_name = noise
+instance = comp, \clk_in~inputclkctrl , clk_in~inputclkctrl, noise, 1
+instance = comp, \clk_out~output , clk_out~output, noise, 1
+instance = comp, \clk_in~input , clk_in~input, noise, 1
+instance = comp, \Selector1~0 , Selector1~0, noise, 1
+instance = comp, \ps.s1 , ps.s1, noise, 1
+instance = comp, \Selector0~0 , Selector0~0, noise, 1
+instance = comp, \ps.wf1 , ps.wf1, noise, 1
+instance = comp, \ns.nc1~0 , ns.nc1~0, noise, 1
+instance = comp, \ps.nc1 , ps.nc1, noise, 1
+instance = comp, \clk_out~1 , clk_out~1, noise, 1

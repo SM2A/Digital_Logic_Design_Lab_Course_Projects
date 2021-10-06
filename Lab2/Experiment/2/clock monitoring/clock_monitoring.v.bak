@@ -1,0 +1,27 @@
+module clock_monitoring (input clk50,clk_ex,[7:0]PSI_set,[7:0]PSI_min,[7:0]PSI_max,[7:0]FRO_min,output reg Fail,[7:0]setPeriod);
+
+    always @(PSI_set , PSI_min , PSI_max) begin
+        if (PSI_set < PSI_min) setPeriod <= PSI_min;
+        else if (PSI_set > PSI_max) setPeriod <= PSI_max;
+        else if ((PSI_set < PSI_max) && (PSI_set > PSI_min)) setPeriod <= PSI_set;
+    end
+
+    reg [15:0]FROmin_comp;
+    reg [15:0]counter;
+    reg [15:0]comp;
+    integer i = 0;
+
+    always @(posedge clk_ex) begin
+        comp <= counter;
+        for (i = 0 ; i < 6 ; i = i + 1) begin
+            FROmin_comp = FROmin_comp + {8'b0,FRO_min};
+        end
+        Fail <= (counter > FROmin_comp) ? 1 : 0;
+        counter <= 0;
+    end
+    
+    always @(posedge clk50) begin
+        counter <= counter + 1;
+    end
+
+endmodule
